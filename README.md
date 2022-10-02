@@ -9,7 +9,7 @@ You will need mapbox token and provide city in args
 go build -ldflags "-X main.token=<MAPBOX_TOKEN>"
 ./postal_code -c <CITY>
 ```
-
+  
 
 ```bash
 
@@ -23,5 +23,5 @@ go build -ldflags "-X main.token=<MAPBOX_TOKEN>"
 
 
 ### References
-https://docs.mapbox.com/playground/
+https://docs.mapbox.com/playground/  
 https://docs.mapbox.com/playground/geocoding/
