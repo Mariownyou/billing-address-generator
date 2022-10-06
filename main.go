@@ -9,16 +9,15 @@ import (
 	"net/url"
 )
 
-const mapboxUrl	= "https://api.mapbox.com/geocoding/v5/mapbox.places/"
-var token string
-var city  string
+const mapboxUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/"
 
+var token string
+var city string
 
 func init() {
 	flag.StringVar(&city, "c", "Moscow", "City")
-    flag.Parse()
+	flag.Parse()
 }
-
 
 func main() {
 	// get city coordinates
@@ -48,13 +47,12 @@ func main() {
 	fmt.Println(address.String())
 }
 
-
 func getMapboxResponse(query string, params map[string]string) (string, error) {
 	baseUrl, err := url.Parse(mapboxUrl)
 	if err != nil {
 		return "", err
 	}
-	
+
 	// create url
 	baseUrl.Path += fmt.Sprintf("%s.json", query)
 
@@ -64,7 +62,7 @@ func getMapboxResponse(query string, params map[string]string) (string, error) {
 	for key, element := range params {
 		p.Add(key, element)
 	}
-	
+
 	baseUrl.RawQuery = p.Encode()
 
 	// create request
